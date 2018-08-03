@@ -9,7 +9,21 @@
 </div>
 <ul id="posts">
 
- {{ .Content }}
+        {{ if isset .Params "showtoc" }}
+        <section id="toc" class="sidebar">
+            <header>
+                Table of Contents
+                <span class="u-pull-right">
+                    <i id="toggleTOC" class="fa fa-angle-double-up"></i>
+                </span>
+            </header>
+            {{ .TableOfContents }}
+            <hr/>
+        </section>
+        {{ end }}
+        <section class="page-content">
+            {{ .Content }}
+        </section>
   
 </ul>
 {{ end }} 
