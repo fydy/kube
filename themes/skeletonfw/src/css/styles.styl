@@ -1,0 +1,517 @@
+/* #### Comment Conventions ####
+*
+* #### READ ME CAREFULLY ####
+* ==== Major Sections ====
+* ---- Minor Sections ----
+*
+*/
+
+/* #### Based on skeleton-plus ####
+* This style is intended to customize skeleton-plus style.
+* So it doens't have styling of all parts, for that see skeleton-plus.css
+*/
+
+/*
+* #### Mobile Fist Approach ####
+* - Define Defaults for smallest screen size
+* - Use Media query to adapt to incrementing screen sizes
+*/
+
+/* ==== Typography ==== */
+/*
+* Change the @import line to your preferred typography file
+* - font-mplus
+* - font-open-sans
+* - font-ralway
+* - font-roboto
+*/
+@import 'fonts/font-open-sans.styl'
+
+/* ==== VARIABLES ==== */
+
+/* ---- Colors ---- */
+@import 'colors/palette-default.styl'
+
+content_border =  1px solid content_border_color
+button_border = 1px solid button_border_color
+button_hover_border = 1px solid button_hover_border_color
+button_disabled_border = 1px solid button_disabled_border_color
+
+/* ---- font stuff ---- */
+
+fw_def = 400 // default font weight
+lh_def = 1.45 // default line height
+
+fs_def = 16px // default font size for older browsers
+fs_body = 1.1rem // body
+fs_p = fs_body // paragraph
+// headers
+fs_h1 = 2.0rem
+fs_h1_medium = 1.7rem
+fs_h1_small = 1.6rem
+fs_h2 = 1.4rem
+fs_h3 = 1.2rem
+fs_h4 = 1rem
+fs_h5 = 0.9rem
+fs_h6 = 0.8rem
+// pre, code, blockquote
+fs_pre = 1.1rem
+fs_code = 1.0rem
+fs_bq = 1.2rem
+fs_small = 0.7rem
+fs_icons = 0.7rem
+fs_toc_ul = 0.9rem
+fs_nested_ul = 0.8rem
+
+/* ---- hugo related variables ---- */
+
+/* ==== Major HTML Components ==== */
+html
+  font-size: fs_def // default font size
+  background-color: bg_color
+  color: fg_color
+
+/* Adopt font-size by screen width */
+@media screen
+  html
+    font-size: calc(14px + (18 - 16) * (100vw - 350px) / (1100 - 350))
+
+body
+  max-width: 99%
+  margin: auto
+  background-color: bg_color
+  color: fg_color
+  font-weight: fw_def
+  line-height: lh_def /* fallback value. */
+  line-height: calc(1.3em + (1.35 - 1.3) * ((100vw - 21em)/(30 - 21)))
+  font-size: fs_body
+  opacity: 1
+  transition: 1s opacity
+  &.fade-out
+    opacity: 0
+    transition: none
+
+header =
+  color: header_color
+  margin-bottom: 0.5rem
+  margin-top: 2.0rem
+  font-weight: 500
+
+h1
+  {header}
+  font-size: fs_h1
+
+h2
+  {header}
+  font-size: fs_h2
+
+h3
+  {header}
+  font-size: fs_h3
+
+h4
+  {header}
+  font-size: fs_h4
+
+h5
+  {header}
+  font-size: fs_h5
+
+h6
+  {header}
+  font-size: fs_h6
+
+code
+  border: 0
+  color: code_color
+  background-color: code_bg_color
+  font-size: fs_code
+  padding: 0.1rem 0.3rem
+  hyphens: none
+
+pre
+  color: pre_color
+  background-color: pre_bg_color
+  font-size: fs_pre
+  margin-bottom: 1rem
+  border-radius: 4px
+  box-shadow: 0 0 6px box_shadow_color
+  > code
+    margin: 0
+    color: code_color
+    font-size: fs_pre
+    padding: 0.2rem 0.5rem
+    white-space: pre-wrap !important
+
+a
+  text-decoration: none
+  color: link_color
+  &:hover
+    color: link_hover_color
+
+hr
+  margin-top: 1rem
+  margin-bottom: 1rem
+  border-color: content_border_color
+
+blockquote
+  color: blockquote_color
+  margin-right: 5px
+  margin-left: 10px
+  padding-left: 15px
+  border-left: 3px solid blockquote_border_color
+  font-size: fs_bq
+  footer
+    cite:before
+      content: "— "
+
+main.content
+  padding-left: 0.25rem
+  padding-bottom: 1rem
+
+/* ==== Hugo Theme Components ==== */
+/* ---- buttons ---- */
+.button
+  height: 2.1rem
+  margin-bottom: 0
+  line-height: 2rem
+  padding: 0 1rem
+  font-size: fs_icons
+  color: button_fg_color
+  background-color: button_bg_color
+  border: button_border
+  box-shadow: 0 0 0 button_border_color
+  transition: all 250ms ease-out
+  &:hover
+    color: button_hover_fg_color
+    background-color: button_hover_bg_color
+    border: button_hover_border
+    box-shadow: 0 0 6px box_shadow_color
+  &.disabled
+    background-color: button_disabled_bg_color
+    color: button_disabled_fg_color
+    border: button_disabled_border
+    box-shadow: 0 0 1px bg_color
+    pointer-events: none
+  .fa
+    vertical-align: sub
+
+.button.button-primary
+  background-color: button_hover_bg_color
+  color: button_hover_fg_color
+  border: button_hover_border
+  box-shadow: 0 0 0 1px button_hover_border_color
+  transition: all 250ms ease-out
+  &:hover
+    color: primary_button_hover_fg_color
+    background-color: button_hover_bg_color
+    border: button_hover_border
+    box-shadow: 0 0 6px box_shadow_color
+  &.disabled
+    background-color: button_disabled_bg_color
+    color: button_disabled_fg_color
+    border: button_disabled_border
+    box-shadow: 0 0 1px bg_color
+    pointer-events: none
+
+.meta
+  color: meta_color
+  margin-bottom: 1px
+  font-style: italic
+
+nav
+  ul
+    margin-bottom: 0.5rem
+    li
+      margin: 0 2.5px 10px 2.5px
+      display: inline
+      a.button span.text
+        display: none
+        letter-spacing: normal
+
+
+.container
+  max-width: 100%
+  padding: 0.25rem
+
+header#main
+  margin: 1rem 0 2rem 0
+  text-align: center
+  h1
+    text-transform: uppercase
+  nav
+    ul
+      li
+        margin-right: 0.25rem
+        text-transform: uppercase
+
+.content
+  padding: 0.1rem
+  margin: 0 0 1rem
+  border: content_border
+  border-radius: 2px
+  img
+    max-width: 100%
+
+ul.post-list
+  list-style: none
+  .post-item
+    .post-date
+      color: meta_color
+      margin-bottom: 1px
+      font-style: italic
+      float: left
+      width: 10rem
+      text-align: right
+      margin-right: 0.5rem
+      margin-top: 2px
+    .post-title
+        margin-bottom: 0.5rem
+        a
+          color: header_color
+          transition: all 250ms ease-out
+          &:hover
+            color: link_hover_color
+    .summary
+      p
+        margin-bottom: 2px
+      div.read-more-link
+        font-weight: 400
+  hr.list-break
+    width: 50%
+    margin-top: 0.5rem
+    margin-bottom: 1rem
+    text-align: center
+
+header#title-container
+  h1.page-heading
+    margin-top: 0.5rem
+    font-size: fs_h1_medium
+  .taxonomy
+    margin-top: 15px
+    margin-bottom: 5px
+    small
+      vertical-align: text-top
+    .button
+      text-transform: capitalize
+      white-space: nowrap !important
+      font-weight: 400
+      height: 1.5rem
+      line-height: 1.2rem
+      padding-left: 10px
+      padding-right: 10px
+
+section.sidebar
+  text-transform: capitalize
+  margin-bottom: 20px !important
+  margin-top: 15px !important
+  height: 60%
+  header
+    font-weight: bold
+    font-size: fs_body
+    display: block
+    background-color: toc_header_bg
+    color: toc_header_color
+    box-shadow: 0 0 6px box_shadow_color
+    text-align: center
+    padding: 2px 10px 2px
+    margin-bottom: 10px
+  hr
+    border-top: 3px solid toc_header_bg !important
+    margin: 0 !important
+    margin-top: 10px !important
+
+nav#TableOfContents
+  max-height: 100%
+  overflow-x: hidden
+  overflow-y: scroll
+  ul
+    padding: 0
+    margin: 0
+    list-style: none !important
+    font-size: fs_toc_ul
+    line-height: 1.23rem
+    ul
+      font-size: 0.85rem
+      ul
+        font-size: 0.8rem
+    li
+      display: list-item
+      margin: 0
+      padding: 0
+      padding-left: 10px
+      a
+        display: block
+        text-decoration: none !important
+        color: toc_link_color
+        padding-left: 100%
+        margin-left: -100%
+        transition: all 250ms ease-out
+        &:hover
+          background-color: alpha(toc_hover_bg_color,.80)
+          color: toc_hover_fg_color
+          code
+            color: toc_hover_fg_color
+        &:active,
+        &.active
+          background-color: toc_hover_bg_color
+          color: toc_hover_fg_color
+          box-shadow: 0 0 6px box_shadow_color
+          code
+            color: toc_hover_fg_color
+        code
+          color: fg_color
+          background-color: rgba(0,0,0,0)
+          padding: 0
+          font-size: 0.9rem
+
+nav#TableOfContents > ul
+  padding 5px 10px
+nav#TableOfContents::-webkit-scrollbar-track
+  box-shadow: inset 0 0 2px rgba(0,0,0,0.3)
+nav#TableOfContents::-webkit-scrollbar
+  width: 1px
+nav#TableOfContents::-webkit-scrollbar-thumb
+  background-color: #000000
+  width: 3px
+
+section.page-content
+  h1
+    font-size: fs_h1_small
+  p
+    margin-bottom: 1rem
+    hyphens: none
+  ol, ul
+    //margin-bottom: 2px
+    list-style-position: outside
+    padding-left: 1rem
+    li
+      margin-bottom: 1rem
+      hyphens: none
+      pre
+        margin-top: 0.25rem
+        margin-bottom: 1rem
+      p
+        display: inline
+      ul
+        margin: 5px
+        font-size: 95%
+
+.pagination
+  ul
+    display: flex
+    padding-left: 0.5rem
+    padding-right: 0.5rem
+    li
+      margin-right: 0.25rem
+      margin-left: 0.25rem
+      padding: 0
+      .button
+        margin-bottom: 0px
+        padding-left: .5rem
+        padding-right: .5rem
+        width: 80%
+
+
+footer
+  nav
+    ul
+      padding: 1rem 0.5rem 0 0.5rem
+      margin-bottom: 0
+      li
+        a
+          font-size: fs_icons
+          color: icons_color
+          transition: all 250ms ease-out
+          &:hover
+            color: icons_hover_color
+  #copyright
+    font-size: fs_small
+    margin-top: 2rem
+    text-align: center
+
+
+
+/* ---- blazy customization ---- */
+.b-lazy
+  -webkit-transition: opacity 500ms ease-in-out
+  -moz-transition: opacity 500ms ease-in-out
+  -o-transition: opacity 500ms ease-in-out
+  transition: opacity 500ms ease-in-out
+  max-width: 100%
+  opacity: 0
+
+.b-lazy.b-loaded
+  opacity: 1
+  border: 0px
+
+/* Using "!important" for floating/fixed stuff */
+/* ---- Back to Top Button ---- */
+#back-to-top
+  display: none
+  /* Hidden on mobile devices */
+  position: fixed !important
+  bottom: 0px !important
+  right: 30px !important
+  padding: 0px !important
+  font-size: 0.8rem !important
+  color: link_color !important
+  transition: all 250ms ease-in-out
+  &:hover
+    color: link_hover_color !important
+
+.u-pull-right
+  float: right !important
+
+.u-pull-left
+  float: left !important
+
+.alert
+    display: block !important
+    padding: 20px !important
+    border: 0 !important
+    border-left: 5px solid !important
+    i
+      vertical-align: middle
+      margin-right: 20px
+
+.alert-success
+    background-color: #D5F5E3 !important
+    border-left-color: #2f945b !important
+    color: #2f945b !important
+
+.alert-info
+    background-color: #D6EAF8 !important
+    border-left-color: #3498DB !important
+    color: #3498DB !important
+
+.alert-warning
+    background-color: #FCF3CF !important
+    border-left-color: #b99400 !important
+    color: #b99400 !important
+
+.alert-error
+    background-color: #F2D7D5 !important
+    border-left-color: #C0392B !important
+    color: #C0392B !important
+
+/* * ==== Media Queries ==== */
+
+/* Adapt to increasing screen sizes */
+
+@media only screen and (min-width: 750px)
+  nav a.button span.text
+    display: inline !important
+
+  .pager
+    a.button
+      font-size: 0.5rem !important
+      span.text
+        display: inline !important
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px)
+
+  .sidebar
+    float: right !important
+    position: fixed !important

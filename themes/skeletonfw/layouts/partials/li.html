@@ -1,0 +1,19 @@
+<li>
+    <article class="post-item">
+        <header>
+            <h4 class="post-date">
+                <time datetime="{{ .Date.Format .Site.Params.DateFormParsable }}">{{  .Date.Format .Site.Params.DateForm }}</time>
+            </h4>
+            <h3 class="post-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+        </header>
+        <section class="summary">
+        {{ .Summary }}
+        <div class="read-more-link">
+            <a href="{{ .RelPermalink }}">Read More…</a>
+        </div>
+        </section>
+    </article>
+    <hr class="list-break"/>
+</li>

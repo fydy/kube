@@ -1,0 +1,54 @@
+{{ partial "header.html" . }}
+{{ $baseURL := .Site.BaseURL }}
+<main class="row content">
+    <article class="columns twelve">
+        <header id="title-container">
+            {{ partial "page-heading" . }}
+            <p class="meta">&nbsp;<i class="fa fa-calendar-o"></i>
+                <time datetime="{{ .Date.Format .Site.Params.DateFormParsable }}">{{ .Date.Format .Site.Params.DateFormFull }}</time>
+            </p>
+            <p class="taxonomy"><small>Tags: </small>
+                {{ range .Params.tags }}
+                    <a class="button" href="{{ $baseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+            </p>
+            <hr/>
+        </header>
+        {{ if isset .Params "showtoc" }}
+        <section id="toc" class="sidebar">
+            <header>
+                Table of Contents
+                <span class="u-pull-right">
+                    <i id="toggleTOC" class="fa fa-angle-double-up"></i>
+                </span>
+            </header>
+            {{ .TableOfContents }}
+            <hr/>
+        </section>
+        {{ end }}
+        <section class="page-content">
+            {{ .Content }}
+        </section>
+    </article>
+</main>
+
+<nav id="pager" class="pagination">
+    <ul class="row">
+        <li class="one-half column">
+        {{with .NextInSection}}
+        <a data-balloon="Previous Post" data-balloon-pos="right" class="button button-primary u-pull-left" href="{{.Permalink}}">
+            <i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i>
+            <span class="text">{{.Title}}</span>
+        </a>
+        {{end}}&nbsp;</li>
+        <li class="one-half column">&nbsp;
+        {{with .PrevInSection}}
+        <a data-balloon="Next Post" data-balloon-pos="left" class="button button-primary u-pull-right" href="{{.Permalink}}">
+          <span class="text">{{.Title}}</span>
+          <i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i>
+      </a>
+      {{end}}</li>
+    </ul>
+</nav>
+
+{{ partial "footer.html" . }}
