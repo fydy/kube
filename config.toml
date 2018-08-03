@@ -1,4 +1,4 @@
-﻿baseurl  = "/"
+baseurl  = "https://fydy.github.io/kube/"
 relativeURLs = false
 canonifyURLs = true
 theme = "skeletonfw"
