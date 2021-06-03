@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fixeds on </title>
+    <link>https://fydy.github.io/kube/fixed/</link>
+    <description>Recent content in Fixeds on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://fydy.github.io/kube/fixed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Hugo</title>
+      <link>https://fydy.github.io/kube/about-hugo/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fydy.github.io/kube/about-hugo/</guid>
+      <description>Hugo is a static site engine written in Go.
+It makes use of a variety of open source projects including:
+ Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.
+Setup Some fun facts about Hugo:
+ Built in Go Loosely inspired by Jekyll Primarily developed by spf13 on the train while commuting to and from Manhattan. Coded in Vim using spf13-vim  Have questions or suggestions?</description>
+    </item>
+    
+  </channel>
+</rss>

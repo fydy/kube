@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on </title>
+    <link>https://fydy.github.io/kube/series/</link>
+    <description>Recent content in Series on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://fydy.github.io/kube/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorials</title>
+      <link>https://fydy.github.io/kube/series/tutorials/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fydy.github.io/kube/series/tutorials/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
